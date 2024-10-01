@@ -1,6 +1,6 @@
 /*
 - GET COMPUTER CHOICE
-    Declare new function getComputerChoice that randomly returns strings "Rock" "Paper" or "Scissors" using the math.random() method
+    Declare function getComputerChoice that randomly returns strings "Rock" "Paper" or "Scissors" using the math.random() method
         Include the math.random() method in the function to get a random number between 0 and 1    
         Declare two parameters for the function. These numbers will define the range for random numbers to be returned (1-3)
             min - the argument will be a minimum number (1), and 
@@ -17,3 +17,10 @@
         Else if getComputerChoice = 2: return paper
         Else getComputerChoice = 3: return scissors    
 */
+
+function getComputerChoice(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+}
+

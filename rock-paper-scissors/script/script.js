@@ -24,3 +24,17 @@ function getComputerChoice(min, max) {
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
 }
 
+function assignComputerChoice(num) {
+    num = getComputerChoice(1,4)
+    if (num === 1) {        
+        return "Rock"
+    }
+    else if (num === 2) {
+        return "Paper"
+    }
+    else if (num === 3) {
+        return "Scissors"
+    }
+}
+
+console.log(assignComputerChoice())

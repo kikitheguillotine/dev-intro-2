@@ -1,5 +1,5 @@
 /*
-- GET COMPUTER CHOICE
+- GET COMPUTER'S CHOICE
     Declare function getComputerChoice that randomly returns strings "Rock" "Paper" or "Scissors" using the math.random() method
         Include the math.random() method in the function to get a random number between 0 and 1    
         Declare two parameters for the function. These numbers will define the range for random numbers to be returned (1-3)
@@ -37,4 +37,32 @@ function assignComputerChoice(num) {
     }
 }
 
-console.log(assignComputerChoice())
+/*
+- GET USER'S CHOICE
+    Declare function getUserChoice()
+        Use prompt to get user's input
+        Return user's input
+            Make it case-insensitive
+                Declare function that returns input using charAt(), toUpperCase(), slice() and toLowerCase()
+    Assign result to a variable
+    Declare function that displays error if result is invalid (not rock, paper or scissor)
+        If result =/ rock paper or scissors: 
+            alert "was that a typo? Please pick rock, paper or scissors"
+            run getUserChoice again
+        Else (if result is rock or paper or scissors): return "You picked Rock!/Paper/Scissors"
+             
+*/
+
+function caseInsensitive(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
+}
+
+function getUserChoice() {
+    input = prompt("Rock, paper or scissors?")
+    return input
+}
+   
+let userChoice = (caseInsensitive(getUserChoice()))
+
+console.log(userChoice)
+

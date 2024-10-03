@@ -61,8 +61,16 @@ function getUserChoice() {
     input = prompt("Rock, paper or scissors?")
     return input
 }
-   
-let userChoice = (caseInsensitive(getUserChoice()))
 
-console.log(userChoice)
+function validChoice() {
+    let userChoice = (caseInsensitive(getUserChoice()))
+    if (userChoice == 'Rock'||userChoice == 'Paper'|| userChoice == 'Scissors') {
+        console.log(userChoice)
+        return userChoice
+    }
+    else {
+        alert(`Was that a typo? Please pick rock, paper or scissors`)
+    }
+}
 
+validChoice()

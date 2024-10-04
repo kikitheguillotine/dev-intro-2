@@ -55,9 +55,11 @@ function caseInsensitive(input) {
     return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
 }
 
+
+
 function getUserChoice() {
     input = prompt("Rock, paper or scissors?")
-    return input
+    return input.trim()
 }
 
 function validUserChoice() {
@@ -92,7 +94,7 @@ function playRound() {
             console.log(`You lose! ${computerChoice} beats ${userChoice}.`)
         }
     else {
-        console.log(`Draw! You both chose ${userChoice}`)
+        console.log(`Draw! Both chose ${userChoice}`)
     }        
 }
 playRound (userChoice, computerChoice)

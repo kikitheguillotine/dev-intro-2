@@ -109,8 +109,7 @@ function playRound() {
     Increment 1 to roundCount each round, until it hits 5 rounds and loop stops
     Display message with game winner
 */
-
-function playGame() {
+function fiveRounds() {
     while (roundCount <= 5) {
         console.log(`~ROUND ${roundCount}~`)
         playRound()
@@ -118,24 +117,29 @@ function playGame() {
     }
 }
 
+function extraRound() {
+    while (userScore === computerScore) {
+        console.log(`EXTRA ROUND!`)
+        playRound() 
+    }
+}
+
+function announceWinner() {
+    if (userScore < computerScore) {
+        console.log(`Oh no, you lost! :(`)    
+        return;
+    }
+    
+    console.log(`Congratulations, you won!`) 
+}
+
+function playGame() {
+    fiveRounds()
+    extraRound()
+    announceWinner()
+}
+
 playGame()
 
-while (userScore === computerScore) {
-    console.log(`EXTRA ROUND!`)
-    playRound() 
-}
 
-if (userScore > computerScore) {
-    console.log(`Congratulations, you won!`)
-}
-else if (userScore < computerScore) {
-    console.log(`Oh no, you lost! :(`)
-}   
-
-// if (userScore > computerScore) {
-//     console.log(`Congratulations, you won!`)
-// }
-// else if (userScore < computerScore) {
-//     console.log(`Oh no, you lost! :(`)
-// }
 

@@ -62,15 +62,16 @@ function getUserChoice() {
     return input
 }
 
-function validChoice() {
+// Declare function to loop until input is valid 
+
+function validUserChoice() {
     let userChoice = (caseInsensitive(getUserChoice()))
-    if (userChoice == 'Rock'||userChoice == 'Paper'|| userChoice == 'Scissors') {
-        console.log(userChoice)
-        return userChoice
-    }
-    else {
-        alert(`Was that a typo? Please pick rock, paper or scissors`)
-    }
+    while (userChoice !== "Rock" && userChoice !== "Paper" && userChoice !== "Scissors") {
+        alert("Invalid choice. Please enter Rock, Paper, or Scissors.");
+        userChoice = caseInsensitive(getUserChoice());
+        }
+    // console.log(userChoice)
+    return userChoice
 }
 
-validChoice()
+validUserChoice()

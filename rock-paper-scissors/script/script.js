@@ -36,8 +36,6 @@ function assignComputerChoice(num) {
     }
 }
 
-let computerChoice = assignComputerChoice()
-
 /* GET USER'S CHOICE
     Declare function getUserChoice()
         Use prompt to get user's input
@@ -90,25 +88,19 @@ function playRound() {
         userChoice === `Scissors` && computerChoice === `Paper` ||
         userChoice === `Paper` && computerChoice === `Rock`) {
             console.log(`You win! ${userChoice} beats ${computerChoice}.`)
-            userScore = userScore + 1
-            computerScore = computerScore + 0
-            console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
+            userScore++
         }
     else if (
         computerChoice ===`Rock` && userChoice === `Scissors` ||
         computerChoice === `Scissors` && userChoice === `Paper` ||
         computerChoice === `Paper` && userChoice === `Rock`) {
             console.log(`You lose! ${computerChoice} beats ${userChoice}.`)
-            userScore = userScore + 0
-            computerScore = computerScore + 1
-            console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
+            computerScore++
         }
     else {
         console.log(`Draw! Both chose ${userChoice}`)
-        userScore = userScore + 0
-        computerScore = computerScore + 0
-        console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
-    }        
+        } 
+    console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)       
 }
 
 /* PLAY 5 ROUNDS GAME
@@ -120,11 +112,30 @@ function playRound() {
 
 function playGame() {
     while (roundCount <= 5) {
-        console.log(`Round ${roundCount}`)
+        console.log(`~ROUND ${roundCount}~`)
         playRound()
         roundCount++
     }
 }
 
 playGame()
+
+while (userScore === computerScore) {
+    console.log(`EXTRA ROUND!`)
+    playRound() 
+}
+
+if (userScore > computerScore) {
+    console.log(`Congratulations, you won!`)
+}
+else if (userScore < computerScore) {
+    console.log(`Oh no, you lost! :(`)
+}   
+
+// if (userScore > computerScore) {
+//     console.log(`Congratulations, you won!`)
+// }
+// else if (userScore < computerScore) {
+//     console.log(`Oh no, you lost! :(`)
+// }
 

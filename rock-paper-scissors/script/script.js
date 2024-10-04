@@ -1,5 +1,4 @@
-/*
-- GET COMPUTER'S CHOICE
+/* GET COMPUTER'S CHOICE
     Declare function getComputerChoice that randomly returns strings "Rock" "Paper" or "Scissors" using the math.random() method
         Include the math.random() method in the function to get a random number between 0 and 1    
         Declare two parameters for the function. These numbers will define the range for random numbers to be returned (1-3)
@@ -38,10 +37,8 @@ function assignComputerChoice(num) {
 }
 
 let computerChoice = assignComputerChoice()
-// console.log(computerChoice)
 
-/*
-- GET USER'S CHOICE
+/* GET USER'S CHOICE
     Declare function getUserChoice()
         Use prompt to get user's input
         Return user's input
@@ -54,8 +51,6 @@ let computerChoice = assignComputerChoice()
 function caseInsensitive(input) {
     return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
 }
-
-
 
 function getUserChoice() {
     input = prompt("Rock, paper or scissors?")
@@ -71,42 +66,65 @@ function validUserChoice() {
     return userChoice
 }
 
-let userChoice = validUserChoice()
-
-// console.log(userChoice)
-
-/*
-PLAY A SINGLE ROUND
-    Declare function playRound()
-*/
-
-function playRound() {
-    if (
-        userChoice ===`Rock` && computerChoice === `Scissors` ||
-        userChoice === `Scissors` && computerChoice === `Paper` ||
-        userChoice === `Paper` && computerChoice === `Rock`) {
-            console.log(`You win! ${userChoice} beats ${computerChoice}.`)
-        }
-    else if (
-        computerChoice ===`Rock` && userChoice === `Scissors` ||
-        computerChoice === `Scissors` && userChoice === `Paper` ||
-        computerChoice === `Paper` && userChoice === `Rock`) {
-            console.log(`You lose! ${computerChoice} beats ${userChoice}.`)
-        }
-    else {
-        console.log(`Draw! Both chose ${userChoice}`)
-    }        
-}
-playRound (userChoice, computerChoice)
-
-
-/*
-KEEP TRACK OF THE SCORE
+/* KEEP TRACK OF THE SCORE
     Declare variable userScore
         Initialize it with value of 0
         Each round score will increment if user wins or stay the same if user loses
     Declare variable computerScore
         Initialize it with value of 0
         Each round score will increment if user wins or stay the same if user loses
+PLAY A SINGLE ROUND
+    Declare function playRound()
+    Display diferent messages when user or computer wins
 */
+
+let userScore = 0
+let computerScore = 0
+let roundCount = 1
+
+function playRound() {
+    let userChoice = validUserChoice()
+    let computerChoice = assignComputerChoice()
+    if (
+        userChoice ===`Rock` && computerChoice === `Scissors` ||
+        userChoice === `Scissors` && computerChoice === `Paper` ||
+        userChoice === `Paper` && computerChoice === `Rock`) {
+            console.log(`You win! ${userChoice} beats ${computerChoice}.`)
+            userScore = userScore + 1
+            computerScore = computerScore + 0
+            console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
+        }
+    else if (
+        computerChoice ===`Rock` && userChoice === `Scissors` ||
+        computerChoice === `Scissors` && userChoice === `Paper` ||
+        computerChoice === `Paper` && userChoice === `Rock`) {
+            console.log(`You lose! ${computerChoice} beats ${userChoice}.`)
+            userScore = userScore + 0
+            computerScore = computerScore + 1
+            console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
+        }
+    else {
+        console.log(`Draw! Both chose ${userChoice}`)
+        userScore = userScore + 0
+        computerScore = computerScore + 0
+        console.log (`SCORE\nUser ${userScore}\nComputer ${computerScore}`)
+    }        
+}
+
+/* PLAY 5 ROUNDS GAME
+    Declare roundCount variable
+    Declare function  that loops the code for 5 rounds
+    Increment 1 to roundCount each round, until it hits 5 rounds and loop stops
+    Display message with game winner
+*/
+
+function playGame() {
+    while (roundCount <= 5) {
+        console.log(`Round ${roundCount}`)
+        playRound()
+        roundCount++
+    }
+}
+
+playGame()
 

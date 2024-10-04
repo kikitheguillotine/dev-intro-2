@@ -37,6 +37,9 @@ function assignComputerChoice(num) {
     }
 }
 
+let computerChoice = assignComputerChoice()
+// console.log(computerChoice)
+
 /*
 - GET USER'S CHOICE
     Declare function getUserChoice()
@@ -45,12 +48,7 @@ function assignComputerChoice(num) {
             Make it case-insensitive
                 Declare function that returns input using charAt(), toUpperCase(), slice() and toLowerCase()
     Assign result to a variable
-    Declare function that displays error if result is invalid (not rock, paper or scissor)
-        If result =/ rock paper or scissors: 
-            alert "was that a typo? Please pick rock, paper or scissors"
-            run getUserChoice again
-        Else (if result is rock or paper or scissors): return "You picked Rock!/Paper/Scissors"
-             
+    Declare function that loops code until user's input is valid
 */
 
 function caseInsensitive(input) {
@@ -62,16 +60,51 @@ function getUserChoice() {
     return input
 }
 
-// Declare function to loop until input is valid 
-
 function validUserChoice() {
     let userChoice = (caseInsensitive(getUserChoice()))
     while (userChoice !== "Rock" && userChoice !== "Paper" && userChoice !== "Scissors") {
         alert("Invalid choice. Please enter Rock, Paper, or Scissors.");
         userChoice = caseInsensitive(getUserChoice());
         }
-    // console.log(userChoice)
     return userChoice
 }
 
-validUserChoice()
+let userChoice = validUserChoice()
+
+// console.log(userChoice)
+
+/*
+PLAY A SINGLE ROUND
+    Declare function playRound()
+*/
+
+function playRound() {
+    if (
+        userChoice ===`Rock` && computerChoice === `Scissors` ||
+        userChoice === `Scissors` && computerChoice === `Paper` ||
+        userChoice === `Paper` && computerChoice === `Rock`) {
+            console.log(`You win! ${userChoice} beats ${computerChoice}.`)
+        }
+    else if (
+        computerChoice ===`Rock` && userChoice === `Scissors` ||
+        computerChoice === `Scissors` && userChoice === `Paper` ||
+        computerChoice === `Paper` && userChoice === `Rock`) {
+            console.log(`You lose! ${computerChoice} beats ${userChoice}.`)
+        }
+    else {
+        console.log(`Draw! You both chose ${userChoice}`)
+    }        
+}
+playRound (userChoice, computerChoice)
+
+
+/*
+KEEP TRACK OF THE SCORE
+    Declare variable userScore
+        Initialize it with value of 0
+        Each round score will increment if user wins or stay the same if user loses
+    Declare variable computerScore
+        Initialize it with value of 0
+        Each round score will increment if user wins or stay the same if user loses
+*/
+
